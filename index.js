@@ -38,5 +38,6 @@ app.get('/profile', isLoggedIn, function(req,res){
 
 // controllers
 app.use('/auth', require('./controllers/auth.js'));
+app.use('/update', require('./controllers/update.js'));
 
 app.listen(process.env.PORT || 3000);

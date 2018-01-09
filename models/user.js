@@ -25,8 +25,10 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Password must be between 6 and 32 characters long.'
         }
       }
-    }
-  }, { 
+    },
+    facebookId: DataTypes.STRING,
+    facebookToken: DataTypes.STRING
+  } , { 
     hooks: { //hooks begins!
       beforeCreate: function(pendingUser, options){
         if(pendingUser && pendingUser.password){
