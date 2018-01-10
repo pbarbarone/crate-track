@@ -14,7 +14,7 @@ router.get('/', function (req, res){
 				'User-Agent':'MyDiscogsClient/1.0 +http://localhost:3000'
 			}}, function(request, response, data){
 		var searchResults = JSON.parse(data);
-		console.log(searchResults);
+		// console.log(searchResults);
 
 		// console.log(data);
 		res.render("results", {data: searchResults});
