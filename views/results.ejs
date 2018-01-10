@@ -1,0 +1,21 @@
+<h2>Results display here</h2>
+
+<% data.results.forEach(function(item){%>
+	<a href="/search/results/<%=item.id%>">
+	<div class="well">
+		<p>
+			<ul class="text-left">
+			<li><%= item.title%></li>
+			<li><%= item.year%></li>
+			<li><%= item.catno%></li></ul>
+			<ul> Barcodes:
+				<% item.barcode.forEach(function(number){%>
+					<li><%= number%></li>
+				<%})%>
+			</ul>
+			<img src="<%= item.thumb%>">
+		</p>
+	</div>
+	</a>
+<%});%>
+

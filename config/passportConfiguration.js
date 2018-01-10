@@ -35,59 +35,7 @@ passport.use(new localStrategy({
 }));
 
 /*OAUTH CONFIG*/
-passport.use(new facebookStrategy({
-	clientID: process.env.FACEBOOK_APP_ID,
-	clientSecret: process.env.FACEBOOK_APP_SECRET,
-	callbackURL: process.env.BASE_URL + '/auth/callback/facebook',
-	profileFields: ['id', 'email', 'displayName'], //defining what info we want back from facebook
-	enableProof: true 
-}, function(accessToken, refreshToken, profile, callback){
-	//insert or access facebook user in user table
-	//See if we have an email address we can use to identify user
-	var facebookEmail = profile.emails ? profile.emails[0].value : null;
 
-	//See if the email exists in users table
-	db.user.findOne({
-		where: {email: facebookEmail}
-	}).then(function(existingUser){
-		//This user has logged in before!
-		if(existingUser && facebookEmail){
-			existingUser.updateAttributes({
-				facebookId: profile.id,
-				facebookToken: accessToken
-			}).then(function(updatedUser){
-				callback(null, updatedUser);
-			}).catch(callback);
-		} else {
-			// the person is just new, we need to create an entry for them in the users table
-			//Parse user name (account for multiple names)
-			var usernameArr = profile.displayName.split(' ');
-
-			db.user.findOrCreate({
-				where: {facebookId: profile.id},
-				defaults: {
-					facebookToken: accessToken,
-					email: facebookEmail,
-					firstname: usernameArr[0],
-					lastname: usernameArr[usernameArr.length - 1],
-					username: profile.displayName
-				}
-			}).spread(function(user, wasCreated){
-				if(wasCreated){
-					//Expected case: they were new and we created them in users table
-					callback(null, user);
-				} else {
-					//Unexpected case: they were not new afterall, we just need to update token
-					user.facebookToken = accessToken;
-					user.email = facebookEmail;
-					user.save().then(function(updatedUser){
-						callback(null, updatedUser);
-					}).catch(callback);
-				}
-			}).catch(callback);
-		 }
-	})
-}));
 
 
 
