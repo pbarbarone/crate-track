@@ -33,13 +33,6 @@ router.post('/results/:id', function(req, res){
 	trackArray = req.body.tracklist;
 	console.log(trackArray);
 
-	// req.body.tracklist.forEach(function(track){
-	// 	trackArray.push(track.title)
-	// 	console.log(trackArray);
-	// });
-	// req.body.tracklist.forEACH( FUNCTION(item){
-	// 	trackList.push(item.title);
-	// })
 	db.album.create(req.body).then(function(createdAlbum){
 		// console.log("tracklist is ", req.body.tracklist);
 		res.redirect('/search/results/'+ createdAlbum.discogsNum);
