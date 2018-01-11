@@ -18,7 +18,7 @@ router.get('/', function (req, res){
 });
 
 router.get('/results/:id', function(req, res){
-	var albumUrl = "https://api.discogs.com/releases/" + req.params.id +"?key=dvEmUmAbqkYKrtHAyWvs&secret=gSCHQhTDPkwwyZVIscEGpUbmwQQFdbqW";
+	var albumUrl = "https://api.discogs.com/releases/" + req.params.id +"?key=" + process.env.CONSUMER_KEY + "&secret=" + process.env.CONSUMER_SECRET;
 		request({url: albumUrl,
 			headers: {
 				'User-Agent':'MyDiscogsClient/1.0 +http://localhost:3000'
@@ -30,11 +30,10 @@ router.get('/results/:id', function(req, res){
 });
 
 router.post('/results/:id', function(req, res){
-	trackArray = req.body.tracklist;
-	console.log(trackArray);
+	console.log(req.user);
+	req.body.userId = req.user.id;
 
 	db.album.create(req.body).then(function(createdAlbum){
-		// console.log("tracklist is ", req.body.tracklist);
 		res.redirect('/search/results/'+ createdAlbum.discogsNum);
 	}).catch(function(err){
 		// console.log('catch reached, but there was an error', err);
