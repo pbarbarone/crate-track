@@ -36,12 +36,6 @@ module.exports = (sequelize, DataTypes) => {
           pendingUser.password = hash;
         }
       }
-    // },
-    // classMethods: {
-    //   associate: function(models) {
-    //     // associations can be defined here
-
-    //   }
     }
   });
   user.associate = function(models){

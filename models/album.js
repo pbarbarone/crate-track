@@ -9,12 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     discogsNum: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
     imgUrl: DataTypes.TEXT
-  // }, {
-  //   classMethods: {
-  //     associate: function(models) {
-  //       // associations can be defined here
-  //     }
-  //   }
+
   });
   album.asscoiate = function(models){
     models.album.belongsTo(models.user);
