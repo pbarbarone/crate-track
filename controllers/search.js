@@ -22,8 +22,36 @@ router.get('/', function (req, res){
 });
 
 router.get('/results/:id', function(req, res){
-	res.send('nothing yet');
+	var albumUrl = "https://api.discogs.com/releases/" + req.params.id +"?key=dvEmUmAbqkYKrtHAyWvs&secret=gSCHQhTDPkwwyZVIscEGpUbmwQQFdbqW";
+		request({url: albumUrl,
+			headers: {
+				'User-Agent':'MyDiscogsClient/1.0 +http://localhost:3000'
+			}}, function(request, response, data){
+				var albumResults = JSON.parse(data);
+					console.log(data);
+						res.render('album', {data: albumResults});
+
+			})
 });
+
+router.post('/results/:id', function(req, res){
+	db.album.create(req.body).then(function(createdAlbum){
+		res.redirect('/search/results/'+ createdAlbum.discogsNum);
+	}).catch(function(err){
+		console.log('catch reached, but there was an error', err);
+		res.status(500).send('uh oh');
+	})
+})
+
+
+
+
+
+
+
+
+
+
 
 
 

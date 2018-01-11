@@ -1,0 +1,33 @@
+<h2>albums go here</h2>
+
+<div class= "well text-center">
+
+	<img src="<%= data.images[0].uri%>">
+
+	<form method="POST" action="/search/results/<%=data.id%>">
+        <input hidden type="text" name="artist" value="<%= data.artists[0].name %>">
+        <input hidden type="text" name="title" value="<%= data.title %>">
+        <input hidden type="text" name="releaseDate" value="<%= data.year %>">
+        <input hidden type="text" name="tracklist" value="<%=  %>">
+        <input hidden type="text" name="catno" value="<%= data.labels[0].catno %>">
+        <input hidden type="text" name="discogsNum" value="<%= data.id %>">
+        <input hidden type="text" name="imgUrl" value="<%= data.images[0].uri %>">
+        <button class="btn btn-primary" type="submit">Add to Library</button>
+    </form>
+
+
+
+
+	<div class="text-center">
+	<h3><%= data.title%></h3>
+	<h4><%= data.artists[0].name%></h4>
+	Year: <%= data.year %>
+	Catalog Number: <%= data.labels[0].catno %>
+	Discogs ID: <%= data.id %>
+	Track List: 
+		<ol><%data.tracklist.forEach(function(track){ %>
+			<li><%= track.title%> </li>
+	<% })%>
+		</ol>
+	</div>
+</div>
