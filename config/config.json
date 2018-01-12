@@ -13,6 +13,6 @@
     "dialect": "mysql"
   },
   "production": {
-    "database": "database_production",
+    "use_env_variable": "DATABASE_URL"
   }
 }
