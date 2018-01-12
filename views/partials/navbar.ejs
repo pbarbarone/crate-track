@@ -12,7 +12,6 @@
 			<a class="navbar-brand" href="/">$$</a> 
 		</div>
 
-		<!-- define the links -->
 		<div class="collapse navbar-collapse navbar-exl-collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<% if (!currentUser){%>
@@ -24,8 +23,13 @@
 				</li>
 				<%} else {%>
 				<li>
+					<a href="/update" class="btn btn-sm">Search Albums</a>
+				</li>
+				<li>
 					<a href="/auth/logout">Logout</a>
 				</li>
+
+
 				<%}%>
 			</ul>
 		</div>

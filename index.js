@@ -26,20 +26,21 @@ app.use(function(req,res,next){
 	res.locals.currentUser = req.user;
 	res.locals.alerts = req.flash();
 	next();
-})
+});
 
 // home page route
 app.get('/', function(req,res){
 	res.render('home');
 });
 
-app.get('/profile', isLoggedIn, function(req,res){
-	res.render('profile');
-});
+// app.get('/profile', isLoggedIn, function(req,res){
+// 	res.render('profile');
+// });
 
 // controllers
 app.use('/auth', require('./controllers/auth.js'));
 app.use('/update', require('./controllers/update.js'));
 app.use('/search', require('./controllers/search.js'));
+app.use('/profile', require('./controllers/profile.js'));
 
 app.listen(process.env.PORT || 3000);
