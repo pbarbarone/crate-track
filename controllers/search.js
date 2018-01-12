@@ -6,7 +6,8 @@ var router = express.Router();
 
 router.get('/', function (req, res){
 
-	var discogsUrl = 'https://api.discogs.com/database/search?q=' + req.query.q + '&format=vinyl&key=' + process.env.CONSUMER_KEY + '&secret=' + process.env.CONSUMER_SECRET;
+	// var discogsUrl = 'https://api.discogs.com/database/search?q=' + req.query.q + '&format=vinyl&key=' + process.env.CONSUMER_KEY + '&secret=' + process.env.CONSUMER_SECRET;
+	var discogsUrl = 'https://api.discogs.com/database/search?q=' + req.query.q +'&page=1' + '&artist=' + req.query.a + '&catno=' + req.query.c + '&year=' + req.query.y + '&barcode=' + req.query.s + '&key=' + process.env.CONSUMER_KEY + '&secret=' + process.env.CONSUMER_SECRET;
 	request({url: discogsUrl, 
 			headers: {
 				'User-Agent':'MyDiscogsClient/1.0 +http://localhost:3000'
