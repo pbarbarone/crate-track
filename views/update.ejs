@@ -1,10 +1,26 @@
-<h2>Search Prospect</h2>
+<div class="container">
+		<div class="row header-row text-center">
+			<span class="col-xs-3"></span>
+			<span class="col-xs-6"><h1>Find your Records</h1></span>
+			<span class="col-xs-3"></span>
 
-<form method="get" action="/search/">
-	<input type="text" name="q" placeholder="Search album here" class="form-control">
-	<input type="text" name="a" placeholder="Artist Name" class="form-control">
-	<input type="text" name="c" placeholder="Catalogue Number" class="form-control">
-	<input type="text" name="y" placeholder="Year" class="form-control">
-	<input type="text" name="s" placeholder="Serial Number" class="form-control">
-	<input type="submit">
-</form>
+		</div>
+		<div class="row">
+			<p class="info-p text-center"> Search for your records here. Start with just a band or album name. If you have your record in front of you, take the time to find the Catalogue number on the spine to quicken your search.
+			</p>
+		</div>
+</div>
+
+<div class="container search-main">
+
+	<div class = "row form-row">
+	<form method="get" action="/search/" class="form-search">
+		<input type="text" name="q" placeholder="Search album here" class="form-control">
+		<input type="text" name="a" placeholder="Artist Name" class="form-control">
+		<input type="text" name="c" placeholder="Catalogue Number" class="form-control">
+		<input type="text" name="y" placeholder="Year" class="form-control">
+		<input type="text" name="s" placeholder="Serial Number" class="form-control">
+		<input type="submit" class="search-submit btn">
+	</form>
+	</div>
+</div>

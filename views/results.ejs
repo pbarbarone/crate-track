@@ -1,16 +1,12 @@
 <h2>Results display here</h2>
 
+<div class="container">
 <form method="POST" action="/search/">
 	<input hidden type="text" name="nextUrl" value="<%= data.pagination.urls.next%>">
 	<button class="btn btn-success" type="submit">Next Page</button>
 </form>
-<form method="POST" action="/search/">
-	<input hidden type="text" name="prevUrl" value="<%= data.pagination.urls.prev%>">
-	<button class="btn btn-success" type="submit">Previous Page</button>
-</form>
-<a href="<%= data.pagination.urls.next %>"> button</a>
+
 <% data.results.forEach(function(item){%>
-	<a href="/search/results/<%=item.id%>">
 	<div class="well">
 		<p>
 			<ul class="text-left">
@@ -23,9 +19,11 @@
 					<li><%= number%></li>
 				<%})%>
 			</ul>
+			<a href="/search/results/<%=item.id%>">
 			<img src="<%= item.thumb%>">
+			</a>
 		</p>
 	</div>
-	</a>
 <%});%>
 
+</div>

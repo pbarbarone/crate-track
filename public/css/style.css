@@ -1,0 +1,86 @@
+/**********************/
+/*LAYOUT.JS STYLE BLOCK*/
+html,
+body {
+  height: 100%;
+  background-color: black;
+}
+
+}
+
+/**********************/
+/*HOME STYLE BLOCK*/
+.landing-main{
+
+}
+.landing-title-text  {
+	color: #ffffff;
+	position: relative;
+	top: 220px;
+	font-size: 75px;
+}
+
+.intro-p {
+	position: relative;
+	color: #ffffff;
+	top: 220px;
+}
+
+
+
+
+/**********************/
+/*LOGIN STYLE BLOCK*/
+
+/**********************/
+/*SIGNUP STYLE BLOCK*/
+
+/**********************/
+/*SEARCH STYLE BLOCK*/
+
+.search-main {
+	background-color: black;
+	position: absolute;
+	top: 250px;
+	border: 2px solid #ffffff;
+	border-radius: 5px;
+}
+
+.form-control {
+	padding: 10px;
+	margin: 10px;
+	color: white;
+	background-color: black;
+}
+
+.form-search {
+	margin: 25px;
+}
+
+.search-submit {
+	position: relative;
+	left: 50%;
+	background: white;
+	color: black;
+}
+
+.header-row {
+	position:relative;
+	top: 75px;
+	color: white;
+}
+
+.info-p {
+	position: relative;
+	top: 100px;
+	color: white;
+}
+
+/**********************/
+/*PROFILE STYLE BLOCK*/
+
+/**********************/
+/*RESULTS STYLE BLOCK*/
+
+/**********************/
+/*ALBUM STYLE BLOCK*/

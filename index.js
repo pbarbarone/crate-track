@@ -13,7 +13,6 @@ var app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(ejsLayouts);
-app.use(express.static(path.join(__dirname, 'public')));
 // session needs to be included abouve passport and flash, as both utilize it
 app.use(session({
 	secret: process.env.SESSION_SECRET,
@@ -28,6 +27,7 @@ app.use(function(req,res,next){
 	res.locals.alerts = req.flash();
 	next();
 });
+app.use(express.static(__dirname + "/public/"));
 
 // home page route
 app.get('/', function(req,res){
