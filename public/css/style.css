@@ -82,5 +82,49 @@ body {
 /**********************/
 /*RESULTS STYLE BLOCK*/
 
+.results-container {
+	position: absolute;
+	left: 85px;
+	top: 200px;
+}
+.results-well {
+	height: 330px;
+	width: 300px;
+	margin: 8px;
+	background-color: black;
+	border-radius: 2px;
+	border: solid white 2px;
+}
+
+.results-title-year {
+	background-color: rgba(255,255,255,0.5);
+	margin-top: 10px;
+	border-radius: 3px;
+	color: white;
+}
+
+.results-img {
+	margin: 17px;
+}
+
+.next-page-well {
+	background-color: white;
+	width: 100px;
+	position: relative;
+	left: 800px;
+}
+
+
+
+
 /**********************/
 /*ALBUM STYLE BLOCK*/
+
+
+
+
+
+
+
+
+

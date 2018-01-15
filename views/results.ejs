@@ -1,29 +1,59 @@
-<h2>Results display here</h2>
+<div class="container header-container">
+		<div class="row header-row text-center">
+			<span class="col-xs-3"></span>
+			<span class="col-xs-6"><h1>Search Results</h1></span>
+			<span class="col-xs-3"></span>
 
-<div class="container">
-<form method="POST" action="/search/">
-	<input hidden type="text" name="nextUrl" value="<%= data.pagination.urls.next%>">
-	<button class="btn btn-success" type="submit">Next Page</button>
-</form>
+		</div>
+		<div class="row">
+			<p class="info-p text-center"> Click on the album thumbnail for more info about that specific release. 
+			</p>
+
+		<% if(data.pagination.items > 50) {%>
+		<div class="next-page-well justify-right">
+			<form method="POST" action="/search/">
+			<input hidden type="text" name="nextUrl" value="<%= data.pagination.urls.next%>">
+				<button class="btn next-page-button " type="submit">Next Page</button>
+			</form>
+		</div>
+		<%}%>
+		</div>
+</div>
+
+<div class="container results-container text-center">
+
 
 <% data.results.forEach(function(item){%>
-	<div class="well">
-		<p>
-			<ul class="text-left">
-			<li><%= item.id %></li>
-			<li><%= item.title%></li>
-			<li><%= item.year%></li>
-			<li><%= item.catno%></li></ul>
-			<ul> Barcodes:
-				<% item.barcode.forEach(function(number){%>
-					<li><%= number%></li>
-				<%})%>
-			</ul>
+	
+	<div class="results-well text-center col-xs-4">
+			<div class="results-title-year">
+				<%= item.title%><br>
+				<%= item.year%><br>
+			</div>
+			<% if (!item.thumb){%>
 			<a href="/search/results/<%=item.id%>">
-			<img src="<%= item.thumb%>">
-			</a>
-		</p>
+				<img class="results-img" src="/img/placeholder.jpg" height="150" width="150">
+			</a> 
+			<%} else {%>
+			<a href="/search/results/<%=item.id%>">
+				<img class="results-img" src="<%= item.thumb%>">
+			</a> 
+			<%}%>
+			<br>
+			<div class="results-title-year">
+				Catalogue Number: <%= item.catno%><br>
+				Discogs Release ID: <%= item.id %><br>
+			</div>
 	</div>
 <%});%>
 
 </div>
+
+
+
+
+
+
+
+
+

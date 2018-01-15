@@ -26,15 +26,6 @@ router.post('/', function(req, res){
 		var searchResults = JSON.parse(data);
 		res.render('results', {data: searchResults});
 	});
-	var prevPage = req.body.prevUrl;
-	console.log(req.body.prevUrl);
-	request ({url: prevPage,
-			headers: {
-				'User-Agent':'MyDiscogsClient/1.0 +http://localhost:3000'				
-	}}, function (request, response, data){
-		var prevResults = JSON.parse(data);
-		res.render('results', {data: searchResults});
-	});
 });
 
 router.get('/results/:id', function(req, res){

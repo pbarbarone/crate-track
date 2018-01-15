@@ -1,9 +1,9 @@
 <h2>albums go here</h2>
 
 <div class= "well text-center">
-
+	<% if (data.images){%>
 	<img src="<%= data.images[0].uri%>">
-
+	<%}%>
 	<% tracklist = [] %>
 	<% data.tracklist.forEach(function(track) { %>
 		<% tracklist.push (track.title) %>
