@@ -26,15 +26,18 @@
 	<%};%>
 
 	<div class="text-center">
-	<h3><%= data.title%></h3>
-	<h4><%= data.artists[0].name%></h4>
-	Year: <%= data.year %>
-	Catalog Number: <%= data.labels[0].catno %>
-	Discogs ID: <%= data.id %>
-	Track List:
-		<ol><%data.tracklist.forEach(function(track){ %>
-			<li><%= track.title%> </li>
+	<h1><%= data.title%></h3>
+	<h2><%= data.artists[0].name%></h4>
+	Year: <%= data.year %> <br>
+	Catalogue Number: <%= data.labels[0].catno %> <br>
+	Discogs ID: <%= data.id %> <br><br>
+	Track List: <br>
+		<% trackNumber = 1;%>
+		<%data.tracklist.forEach(function(track){ %>
+			<%= trackNumber + '.) ' + track.title%>
+			<% trackNumber ++;%> 
+			<br>
 	<% })%>
-		</ol>
+		
 	</div>
 </div>
