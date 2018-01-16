@@ -45,7 +45,8 @@ router.post('/results/:id', function(req, res){
 	req.body.userId = req.user.id;
 
 	db.album.create(req.body).then(function(createdAlbum){
-		res.redirect('/search/results/'+ createdAlbum.discogsNum);
+		// res.redirect('/search/results/'+ createdAlbum.discogsNum);
+		res.redirect('/profile')
 	}).catch(function(err){
 		// console.log('catch reached, but there was an error', err);
 		res.status(500).send('uh oh');

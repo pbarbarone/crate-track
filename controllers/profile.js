@@ -10,20 +10,26 @@ var router = express.Router();
 router.get('/', isLoggedIn, function(req,res){
 	db.user.findOne({
 		where: {id: req.user.id},
-		// "eager loading" db info ahead of time
 		include: [db.album]
-	// }).then(function(user){
-	// 	db.album.find({
-	// 		where:{userId: user.id}
+
 		}).then(function(albumObject){
-			console.log(albumObject, "############");
 			res.render('profile', {data: albumObject});
 		})
 	});
-// });
 
-
-
+router.delete('/:id', isLoggedIn, function(req, res){
+  console.log(req.params.id);
+  db.album.destroy({
+    where: {id: req.params.id,
+    		userId: req.user.id}
+  }).then(function(deleted){
+    console.log("deleted = ", deleted);
+    res.send("success");
+  }).catch(function(err){
+    console.log("error happend", err);
+    res.send("fail");
+  });
+});
 
 
 

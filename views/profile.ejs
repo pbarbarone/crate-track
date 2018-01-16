@@ -1,4 +1,3 @@
-<h2>Profile</h2>
 
 <div class="container header-container">
 		<div class="row header-row text-center">
@@ -13,41 +12,42 @@
 		</div>
 </div>
 
+<div class="container results-container text-center">
 
-<% data.albums.forEach(function(album){ %>
 
-	<% var titleString = album.tracklist%>
-	<% var titleArray = [];%>
-	<% console.log(titleString);%>
-
-	<% function splitString(stringToSplit, splitBy){%>
-
-		<% var arrayOfStrings = stringToSplit.split(splitBy); %>
-   		<% for (var i = 0; i < arrayOfStrings.length; i++){ %>
-   		<% titleArray.push(arrayOfStrings[i]); %>
-
-	<% }; %>
-	<% }%>
-	<% console.log(titleArray); %>
-	<% splitString(titleString, ','); %>
-
-	<div class="well">
-
-		<%= album.title %>
-		<%= album.artist %>
-
-		<ol>
-
-		<% titleArray.forEach(function(newTitle){%>
-			<li> <%= newTitle %> </li>
-
-		<%}); %>
-
-		</ol>
-
-		<img src="<%= album.imgUrl %>" height="200" width="200">
+<% data.albums.forEach(function(album){%>
+	
+	<div class="results-well text-center col-xs-4">
+			<div class="results-title-year">
+				<%= album.artist + ' - ' + album.title%><br>
+				<%= album.releaseDate%><br>
+			</div>
+		
+			<a href="/search/results/<%=album.discogsNum%>">
+				<img class="results-img" src="<%= album.imgUrl%>" height="150" width="150">
+			</a> 
+			<br>
+			<div class="results-title-year">
+				Catalogue Number: <%= album.catno%><br>
+				Discogs Release ID: <%= album.discogsNum %><br>
+			</div>
+		<form type="hidden" class="delete" action="./profile/<%= album.id%>">
+			<button type="submit" class="btn btn-xs delete-button">x</button>
+		</form>
 	</div>
 <%});%>
+
+</div>
+
+
+
+
+
+
+
+
+
+
 
 
 

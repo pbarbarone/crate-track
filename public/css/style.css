@@ -6,13 +6,29 @@ body {
   background-color: black;
 }
 
+.navigation {
+	background-color: black;
+	border-bottom: 1px solid white;
+	color: white;
+}
+
+.nav-buttons {
+	color: white !important;
+}
+
+.form-button {
+	background: black;
+	color: white;
+	border: 1px solid white;
+}
+
+.form-group {
+	color: white;
 }
 
 /**********************/
 /*HOME STYLE BLOCK*/
-.landing-main{
 
-}
 .landing-title-text  {
 	color: #ffffff;
 	position: relative;
@@ -26,14 +42,6 @@ body {
 	top: 220px;
 }
 
-
-
-
-/**********************/
-/*LOGIN STYLE BLOCK*/
-
-/**********************/
-/*SIGNUP STYLE BLOCK*/
 
 /**********************/
 /*SEARCH STYLE BLOCK*/
@@ -79,6 +87,14 @@ body {
 /**********************/
 /*PROFILE STYLE BLOCK*/
 
+.delete-button {
+	background-color: black;
+	color: white;
+	position: relative;
+	top: 13px;
+	left: 133px;
+}
+
 /**********************/
 /*RESULTS STYLE BLOCK*/
 
@@ -120,7 +136,13 @@ body {
 /**********************/
 /*ALBUM STYLE BLOCK*/
 
-
+.add-crate {
+	background: white;
+	border: 1px solid black;
+	border-radius: 2px;
+	position: relative;
+	top: 15px;
+}
 
 
 

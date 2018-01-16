@@ -1,4 +1,4 @@
-<nav class="nav navbar-default navbar-fixed-top">
+<nav class="nav navbar-default navbar-fixed-top navigation">
 	<div class="container">
 		<!-- mobile stuff -->
 		<div class="navbar-header">
@@ -9,27 +9,27 @@
 				<span class="icon-bar"></span>
 
 			</button>
-			<a class="navbar-brand" href="/">$$</a> 
+			<a class="navbar-brand nav-buttons" href="/">CT</a> 
 		</div>
 
-		<div class="collapse navbar-collapse navbar-exl-collapse">
+		<div class="collapse navbar-collapse navbar-exl-collapse ">
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a href="/update" class="btn btn-sm">Search Albums</a>
+					<a href="/update" class="btn btn-sm nav-buttons">Search Albums</a>
 				</li>
 				<% if (!currentUser){%>
 				<li>
-					<a href="/auth/login">Login</a>
+					<a href="/auth/login" class="nav-buttons">Login</a>
 				</li>
 				<li>
-					<a href="/auth/signup">Sign Up</a>
+					<a href="/auth/signup" class="nav-buttons">Sign Up</a>
 				</li>
 				<%} else {%>
 				<li>
-					<a href="/profile" class="btn btn-sm">Profile</a>
+					<a href="/profile" class="btn btn-sm nav-buttons">Profile</a>
 				</li>
 				<li>
-					<a href="/update" class="btn btn-sm">Search Albums</a>
+					<a href="/update" class="btn btn-sm nav-buttons">Search Albums</a>
 				</li>
 				<li>
 					<a href="/auth/logout">Logout</a>

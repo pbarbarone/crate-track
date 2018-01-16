@@ -1,0 +1,39 @@
+
+<!-- 
+<% data.albums.forEach(function(album){ %>
+
+	<% var titleString = album.tracklist%>
+	<% var titleArray = [];%>
+	<% console.log(titleString);%>
+
+	<% function splitString(stringToSplit, splitBy){%>
+
+		<% var arrayOfStrings = stringToSplit.split(splitBy); %>
+   		<% for (var i = 0; i < arrayOfStrings.length; i++){ %>
+   		<% titleArray.push(arrayOfStrings[i]); %>
+
+	<% }; %>
+	<% }%>
+	<% console.log(titleArray); %>
+	<% splitString(titleString, ','); %>
+
+	<div class="well">
+
+		<%= album.title %>
+		<%= album.artist %>
+
+		<ol>
+
+		<% titleArray.forEach(function(newTitle){%>
+			<li> <%= newTitle %> </li>
+
+		<%}); %>
+
+		</ol>
+
+		<img src="<%= album.imgUrl %>" height="200" width="200">
+	</div>
+<%});%>
+ -->
+
+
