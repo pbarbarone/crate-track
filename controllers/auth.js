@@ -8,8 +8,7 @@ router.get('/login', function (req,res){
 	res.render('auth/login');
 });
 
-// post router where login form info is obtained
-// test route first!
+
 router.post('/login', passport.authenticate('local',{
 	successRedirect: '/profile', 
 	successFlash: 'Login Approved',
